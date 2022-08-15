@@ -1,0 +1,14 @@
+﻿  Collision.cpp
+  Game.cpp
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ECS.h(120,33): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(72): message : see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int,int,int,int>(int &&,int &&,int &&,int &&,int &&)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
+  Generating Code...
+  Game.vcxproj -> C:\Hogwarts_0.3\Game\Debug\Game.exe
