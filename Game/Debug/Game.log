@@ -1,20 +1,29 @@
-﻿  Game.cpp
+﻿  Collision.cpp
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(78,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(79,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(42,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(43,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(43,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(44,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(28,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(29,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(32,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(33,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Game.cpp
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(78,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(79,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(43,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(44,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(32,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(33,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(28,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(29,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(164,57): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(165,57): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(181,57): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(182,57): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ECS.h(120,33): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=double
           ]
-C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(80): message : see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int,int,int,double>(int &&,int &&,int &&,int &&,double &&)' being compiled
+C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(84): message : see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int,int,int,double>(int &&,int &&,int &&,int &&,double &&)' being compiled
           with
           [
               T=TransformComponent
@@ -24,4 +33,9 @@ C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ECS.h(120,33): warning C4244: 'argument': 
           [
               _Ty=int
           ]
+  GameObject.cpp
+  Map.cpp
+  main.cpp
+  textureManager.cpp
+  Generating Code...
   Game.vcxproj -> C:\Hogwarts_0.3\Game\Debug\Game.exe
