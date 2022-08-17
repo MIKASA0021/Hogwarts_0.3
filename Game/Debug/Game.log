@@ -1,11 +1,15 @@
 ﻿  Collision.cpp
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(28,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(29,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   Game.cpp
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(28,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(29,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ECS.h(120,33): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(72): message : see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int,int,int,int>(int &&,int &&,int &&,int &&,int &&)' being compiled
+C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(78): message : see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int,int,int,int>(int &&,int &&,int &&,int &&,int &&)' being compiled
           with
           [
               T=TransformComponent
