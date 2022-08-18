@@ -31,10 +31,6 @@ public:
 			{
 			case SDLK_KP_ENTER:
 				startMapMovement = true;
-				if (ballMoving == true)
-				{
-
-				}
 				break;
 			case SDLK_h:
 			{
@@ -89,13 +85,13 @@ public:
 			{
 			case SDLK_KP_ENTER:
 				startMapMovement = true;
-				/*if (transform->position.x == tempXball + 3 && transform->position.y == tempYball + 3)
+				if (transform->position.x == tempXball + 3 && transform->position.y == tempYball + 3)
 				{
 					transform->velocity.y = 0;
 					transform->velocity.x = 0;
 					pressCount = 0;
 					sprite->Play("Idle");
-				}*/
+				}
 				break;
 			case SDLK_h:
 			{
