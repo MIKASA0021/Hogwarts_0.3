@@ -84,13 +84,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Hogwarts_0.3\SDL2_image-2.0.1\include;C:\Hogwarts_0.3\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Hogwarts_0.3\SDL2_ttf-2.20.0\include;C:\Hogwarts_0.3\SDL2_image-2.0.1\include;C:\Hogwarts_0.3\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Hogwarts_0.3\SDL2_image-2.0.1\lib\x86;C:\Hogwarts_0.3\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Hogwarts_0.3\SDL2_ttf-2.20.0\lib\x86;C:\Hogwarts_0.3\SDL2_image-2.0.1\lib\x86;C:\Hogwarts_0.3\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -115,13 +115,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Hogwarts_0.3\SDL2_image-2.0.1\include;C:\Hogwarts_0.3\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Hogwarts_0.3\SDL2_ttf-2.20.0\include;C:\Hogwarts_0.3\SDL2_image-2.0.1\include;C:\Hogwarts_0.3\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Hogwarts_0.3\SDL2_image-2.0.1\lib\x86;C:\Hogwarts_0.3\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Hogwarts_0.3\SDL2_ttf-2.20.0\lib\x86;C:\Hogwarts_0.3\SDL2_image-2.0.1\lib\x86;C:\Hogwarts_0.3\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,6 +150,7 @@
     <ClInclude Include="gameLoop\Src\ECS\SpriteComponent.h" />
     <ClInclude Include="gameLoop\Src\ECS\TileComponent.h" />
     <ClInclude Include="gameLoop\Src\ECS\TransformComponent.h" />
+    <ClInclude Include="gameLoop\Src\ECS\UILabel.h" />
     <ClInclude Include="gameLoop\Src\Game.h" />
     <ClInclude Include="gameLoop\Src\GameObject.h" />
     <ClInclude Include="gameLoop\Src\Map.h" />
@@ -165,6 +166,9 @@
     <ClCompile Include="gameLoop\Src\Map.cpp" />
     <ClCompile Include="gameLoop\Src\textureManager.cpp" />
     <ClCompile Include="gameLoop\Src\Vector2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\WINDOWS\Fonts\8514OEM.FON" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
