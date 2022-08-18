@@ -1,13 +1,4 @@
-﻿  Collision.cpp
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(78,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(79,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(43,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(44,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(28,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(29,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(32,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(33,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Game.cpp
+﻿  Game.cpp
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(78,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(79,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(43,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -33,9 +24,4 @@ C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ECS.h(120,33): warning C4244: 'argument': 
           [
               _Ty=int
           ]
-  GameObject.cpp
-  Map.cpp
-  main.cpp
-  textureManager.cpp
-  Generating Code...
   Game.vcxproj -> C:\Hogwarts_0.3\Game\Debug\Game.exe
