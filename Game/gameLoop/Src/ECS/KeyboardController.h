@@ -31,8 +31,12 @@ public:
 			{
 			case SDLK_KP_ENTER:
 				startMapMovement = true;
+				if (ballMoving == true)
+				{
+
+				}
 				break;
-			case SDLK_k:
+			case SDLK_h:
 			{
 				if (startMapMovement == true )//&& mapBegin == true)
 				{
@@ -49,7 +53,7 @@ public:
 					break;
 				}
 			}
-			case SDLK_a:
+			case SDLK_SPACE:
 			{
 				if (startMapMovement == true && ballMoving == false)
 				{
@@ -72,8 +76,8 @@ public:
 					}
 
 					sprite->Play("Idle");
-					break;
 				}
+				break;
 			}
 			default:
 				break;
@@ -85,22 +89,29 @@ public:
 			{
 			case SDLK_KP_ENTER:
 				startMapMovement = true;
+				/*if (transform->position.x == tempXball + 3 && transform->position.y == tempYball + 3)
+				{
+					transform->velocity.y = 0;
+					transform->velocity.x = 0;
+					pressCount = 0;
+					sprite->Play("Idle");
+				}*/
 				break;
-			case SDLK_k:
+			case SDLK_h:
 			{
 				if (startMapMovement == true)
 				{
-					if (transform->position.x == tempXball+3 && transform->position.y == tempYball+3)
+					if (transform->position.x == tempXball + 3 && transform->position.y == tempYball + 3)
 					{
 						transform->velocity.y = 0;
 						transform->velocity.x = 0;
 						pressCount = 0;
 						sprite->Play("Idle");
 					}
-					break;
 				}
+				break;
 			}
-			case SDLK_a:
+			case SDLK_SPACE:
 			{
 
 				if (startMapMovement == true&& ballMoving == false)
