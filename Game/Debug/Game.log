@@ -1,8 +1,8 @@
 ﻿  Collision.cpp
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(78,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(79,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(47,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(48,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(46,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(47,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(32,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(33,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(28,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
@@ -10,8 +10,8 @@ C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(29,16): warning C4244: '='
   Game.cpp
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(78,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(79,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(47,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(48,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(46,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(47,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(32,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(33,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(28,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data

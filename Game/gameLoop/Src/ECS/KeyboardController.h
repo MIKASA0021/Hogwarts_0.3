@@ -28,22 +28,23 @@ public:
 
 	void update() override
 	{
+		if(Game::isComplete == false)
+		{
 		if (Game::event.type == SDL_KEYDOWN)
 		{
 			switch (Game::event.key.keysym.sym)
 			{
 			case SDLK_KP_ENTER:
-				startMapMovement = true;
+				Map::startMapMovement = true;
 				break;
 			case SDLK_k:
 			{
-				if (startMapMovement == true )//&& mapBegin == true)
+				if (Map::startMapMovement == true )//&& mapBegin == true)
 				{
-					ballMoving = true;
+					Game::ballMoving = true;
 					if (transform->velocity.x == 0 && transform->velocity.x == 0)
-					{
-						tempXball = transform->position.x;
-						tempYball = transform->position.y;
+					{tempXBall = transform->position.x;
+						tempYBall = transform->position.y;
 					}
 					transform->velocity.y = 1;
 					transform->velocity.x = 1;
