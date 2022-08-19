@@ -2,6 +2,7 @@
 
 #include "SDL.h"
 #include"SDL_image.h"
+#include "SDL_mixer.h"
 #include <iostream>
 #include "vector"
 
@@ -32,6 +33,8 @@ public:
 	static SDL_Renderer* renderer;
 	static SDL_Event event;
 	static std::vector<ColliderComponent*>colliders;
+    static Mix_Music* backgroundMusic;
+	static Mix_Chunk* soundEffect;
 	
 
 private:

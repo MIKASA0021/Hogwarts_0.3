@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 	{
 		frameStart = SDL_GetTicks();
 
+		
 		game->handleEvents();
 		game->update();
 		game->render();
@@ -26,6 +27,11 @@ int main(int argc, char *argv[])
 		if (frameDelay > frameTime)
 		{
 			SDL_Delay(frameDelay - frameTime);
+		}
+
+		if (!Mix_PlayingMusic())
+		{
+			Mix_PlayMusic(Game::backgroundMusic,-1);
 		}
 	}
 

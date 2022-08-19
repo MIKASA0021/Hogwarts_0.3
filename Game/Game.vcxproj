@@ -84,13 +84,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Hogwarts_0.3\SDL2_ttf-2.20.0\include;C:\Hogwarts_0.3\SDL2_image-2.0.1\include;C:\Hogwarts_0.3\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Hogwarts_0.3\SDL2_mixer-2.0.0\include;C:\Hogwarts_0.3\SDL2_ttf-2.20.0\include;C:\Hogwarts_0.3\SDL2_image-2.0.1\include;C:\Hogwarts_0.3\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Hogwarts_0.3\SDL2_ttf-2.20.0\lib\x86;C:\Hogwarts_0.3\SDL2_image-2.0.1\lib\x86;C:\Hogwarts_0.3\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Hogwarts_0.3\SDL2_mixer-2.0.0\lib\x86;C:\Hogwarts_0.3\SDL2_ttf-2.20.0\lib\x86;C:\Hogwarts_0.3\SDL2_image-2.0.1\lib\x86;C:\Hogwarts_0.3\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -115,13 +115,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Hogwarts_0.3\SDL2_ttf-2.20.0\include;C:\Hogwarts_0.3\SDL2_image-2.0.1\include;C:\Hogwarts_0.3\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Hogwarts_0.3\SDL2_mixer-2.0.0\include;C:\Hogwarts_0.3\SDL2_ttf-2.20.0\include;C:\Hogwarts_0.3\SDL2_image-2.0.1\include;C:\Hogwarts_0.3\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Hogwarts_0.3\SDL2_ttf-2.20.0\lib\x86;C:\Hogwarts_0.3\SDL2_image-2.0.1\lib\x86;C:\Hogwarts_0.3\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Hogwarts_0.3\SDL2_mixer-2.0.0\lib\x86;C:\Hogwarts_0.3\SDL2_ttf-2.20.0\lib\x86;C:\Hogwarts_0.3\SDL2_image-2.0.1\lib\x86;C:\Hogwarts_0.3\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
