@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Audio.h"
 
 Game *game = nullptr;
 
@@ -9,6 +10,7 @@ int main(int argc, char *argv[])
 
 	unsigned int frameStart;
 	int frameTime;
+	Audio a;
 
 	game = new Game();
 	game->init("GameWindow", 800, 640, false);
@@ -31,7 +33,7 @@ int main(int argc, char *argv[])
 
 		if (!Mix_PlayingMusic())
 		{
-			Mix_PlayMusic(Game::backgroundMusic,-1);
+			a.playMusic();
 		}
 	}
 

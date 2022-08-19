@@ -151,6 +151,7 @@
     <ClInclude Include="gameLoop\Src\ECS\TileComponent.h" />
     <ClInclude Include="gameLoop\Src\ECS\TransformComponent.h" />
     <ClInclude Include="gameLoop\Src\ECS\UILabel.h" />
+    <ClInclude Include="gameLoop\Src\Audio.h" />
     <ClInclude Include="gameLoop\Src\Game.h" />
     <ClInclude Include="gameLoop\Src\GameObject.h" />
     <ClInclude Include="gameLoop\Src\Map.h" />

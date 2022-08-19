@@ -60,6 +60,9 @@
     <ClInclude Include="gameLoop\Src\ECS\UILabel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="gameLoop\Src\Audio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameLoop\Src\ECS\ECS.cpp">

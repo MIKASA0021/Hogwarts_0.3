@@ -5,6 +5,7 @@
 #include"ECS/Components.h"
 #include "Vector2D.h"
 #include"Collision.h"
+#include"Audio.h"
 #include <sstream>
 
 Map* map;
@@ -12,11 +13,10 @@ Manager manager;
 
 SDL_Renderer* Game::renderer = nullptr;            //we can reassign
 SDL_Event Game::event;
-Mix_Music* Game:: backgroundMusic = nullptr;
-Mix_Chunk* Game::soundEffect = nullptr;
 
 std::vector<ColliderComponent*> Game::colliders;
-
+Mix_Music* Audio::backgroundMusic = nullptr;
+Mix_Chunk* Audio::soundEffect = nullptr;
 bool Game::isComplete = false;
 int Game::updateCounter = 0;
 bool Map::startMapMovement = false;
@@ -32,6 +32,7 @@ auto& Player(manager.addEntity());  //creating our player
 auto& Enemy(manager.addEntity());   //creating our enemy
 auto& ball(manager.addEntity());    //creating our magic ball
 auto& label(manager.addEntity());   //THE TEXT LABELS
+auto& Sound(manager.addEntity());   //the audio entity
 
 const char* mapfile = "gameLoop/dev/finalMapTile64.png";
 
@@ -72,27 +73,20 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		{
 			SDL_SetRenderDrawColor(renderer, 0, 0, 0 , 0);
 		}
-
 		if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
 			std::cout << "error:" << Mix_GetError() << std::endl;
-		backgroundMusic = Mix_LoadMUS("gameloop/effects/gameNightShades.mp3");
-		if (backgroundMusic == NULL)
-			std::cout << "MUSIC ERROR" << std::endl;
-		soundEffect = Mix_LoadWAV("gameloop/effects/gameClick.wav");
-		if (soundEffect == NULL)
-			std::cout << "Sound Effect Error" << std::endl;
-
-
 		isRunning = true;
 	}
 	
+
+	Sound.addComponent<Audio>("gameloop/effects/gameNightShades.mp3", "gameloop/effects/gameClick.wav");
+
 	if (TTF_Init() == -1)
 	{
 		std::cout << "Error : SDL_TTF" << std::endl;
 	}
 
 	//reassets->AddTexture("Player", "gameLoop/gfx/finalHarry.png");
-
 
 		map = new Map();
 		static int loop;
@@ -118,6 +112,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	Enemy.addGroup(groupEnemies);
 
 	label.addComponent<UILabel>(250, 250, "PRESS ENTER TO START ", "gameLoop/dev/8514oem.fon", 16);
+	
 	//label.addComponent<KeyboardComtroller>();
 
 	//magicBall
@@ -202,13 +197,13 @@ void Game::update()
 			
 			Enemy.getComponent<TransformComponent>().position.x = 467;
 			Enemy.getComponent<TransformComponent>().position.y = 427;
-			Mix_PlayChannel(-1, soundEffect, 0);    //-1 plays the effect in available channel.... 0 is for no loop
+			Sound.getComponent<Audio>().playEffects("gameLoop/effects/clickSound.wav");    //-1 plays the effect in available channel.... 0 is for no loop
 		}
 		else
 		{
 			Enemy.getComponent<TransformComponent>().position.x = 447;
 			Enemy.getComponent<TransformComponent>().position.y = 447;
-			Mix_PlayChannel(-1, soundEffect, 0);
+			Sound.getComponent<Audio>().playEffects("gameLoop/effects/clickSound.wav");
 		}
 		for (bool runOnce = true; runOnce; runOnce = false)
 		{
@@ -272,11 +267,11 @@ void Game::clean()
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 
-	Mix_FreeChunk(soundEffect);
-	Mix_FreeMusic(backgroundMusic);
+	Mix_FreeChunk(Audio::soundEffect);
+	Mix_FreeMusic(Audio::backgroundMusic);
 
-	soundEffect = NULL;
-	backgroundMusic = NULL;
+	Audio::soundEffect = NULL;
+	Audio::backgroundMusic = NULL;
 
 	Mix_Quit();
 	SDL_Quit();
