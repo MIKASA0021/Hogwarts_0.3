@@ -19,21 +19,6 @@ public:
 	}
 	~Audio()
 	{}
-
-	//void SetAudio(std::string mp3,std::string wav)
-	//{
-	//	backgroundMusic = Mix_LoadMUS(mp3.c_str());
-	//	soundEffect = Mix_LoadWAV(wav.c_str());
-	//}
-
-	//void ChangeSoundEffects(std::string wav)
-	//{
-	//	soundEffect = Mix_LoadWAV(wav.c_str());
-	//}
-	//void ChangeBackgroundMusic(std::string mp3)
-	//{
-	//	backgroundMusic = Mix_LoadMUS(mp3.c_str());
-	//}
 	void playMusic()
 	{
 		Mix_PlayMusic(backgroundMusic, -1);
@@ -51,6 +36,10 @@ public:
 	{
 		soundEffect = Mix_LoadWAV(wav.c_str());
 		Mix_PlayChannel(-1, soundEffect, 0);
+	}
+	void pauseMusic()
+	{
+	 Mix_HaltMusic();
 	}
 };
 

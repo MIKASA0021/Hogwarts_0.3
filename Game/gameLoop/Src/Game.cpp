@@ -154,7 +154,8 @@ void Game::update()
 		{
 			label.getComponent<UILabel>().position.x = 450;
 			label.getComponent<UILabel>().position.y = 50;
-			label.getComponent<UILabel>().SetLabelText("PRESS 'K' TO KILL AND 'A' TO AIM", "gameLoop/dev/8514oem.fon", 16);
+			//label.getComponent<UILabel>().SetLabelText("PRESS 'K' TO KILL AND 'A' TO AIM", "gameLoop/dev/8514oem.fon", 16);
+			label.getComponent<UILabel>().SetLabelText("", "gameLoop/dev/8514oem.fon", 16);
 		}
 		updateCounter++;
 	}
@@ -163,12 +164,7 @@ void Game::update()
 	{
 		if (Map::startMapMovement == true)
 		{
-			t->getComponent<TileComponent>().destRect.x += -2;//-(pVel.x * pSpeed);
-			//if (t->getComponent<TileComponent>().destRect.x == 0)
-			//{
-			//	mapBegin = true;
-			//}
-			
+			t->getComponent<TileComponent>().destRect.x += -2;
 		}
 
 			if (Collision::hitCount >= 3)
@@ -180,6 +176,7 @@ void Game::update()
 			{
 				Game::isComplete = true;
 				Enemy.getComponent<TransformComponent>().velocity.x = 1;
+				Sound.getComponent<Audio>().playEffects("gameLoop/effects/enemyRunAway.wav");
 				break;
 			}
 			else
@@ -196,14 +193,12 @@ void Game::update()
 		{
 			
 			Enemy.getComponent<TransformComponent>().position.x = 467;
-			Enemy.getComponent<TransformComponent>().position.y = 427;
-			Sound.getComponent<Audio>().playEffects("gameLoop/effects/clickSound.wav");    //-1 plays the effect in available channel.... 0 is for no loop
+			Enemy.getComponent<TransformComponent>().position.y = 427;   //-1 plays the effect in available channel.... 0 is for no loop
 		}
 		else
 		{
 			Enemy.getComponent<TransformComponent>().position.x = 447;
 			Enemy.getComponent<TransformComponent>().position.y = 447;
-			Sound.getComponent<Audio>().playEffects("gameLoop/effects/clickSound.wav");
 		}
 		for (bool runOnce = true; runOnce; runOnce = false)
 		{
@@ -211,7 +206,7 @@ void Game::update()
 		}
 
 		std::stringstream sst;
-		sst << "TOTAL HIT REQUIRED:" <<3- Collision::hitCount;
+		sst << "HITS REQUIRED:" <<3- Collision::hitCount;
 		label.getComponent<UILabel>().SetLabelText(sst.str(), "gameLoop/dev/8514oem.fon", 16);
 			ball.getComponent<TransformComponent>().position.x = ball.getComponent<KeyboardController>().tempXBall;
 			ball.getComponent<TransformComponent>().position.y = ball.getComponent<KeyboardController>().tempYBall;
@@ -226,12 +221,16 @@ void Game::update()
 		
 	}
 
-	//std::cout << ball.getComponent < TransformComponent>().position.x << " , " << ball.getComponent < TransformComponent>().position.y << std::endl;
-
-	//for (auto cc : colliders)
-	//{
-	//	Collision::AABB(Player.getComponent<ColliderComponent>(), *cc);
-	//}
+	if (isComplete == true)
+	{
+		for (static bool runOnce = true; runOnce; runOnce = false)
+		{
+			Sound.getComponent<Audio>().playMusic("gameLoop/effects/hedwigsTheme.mp3");
+			label.getComponent<UILabel>().SetLabelText("", "gameLoop/dev/8514oem.fon", 16);
+			Sound.getComponent<Audio>().pauseMusic();
+			Sound.getComponent<Audio>().playEffects("gameLoop/effects/gameLevelComplete.wav");
+		}
+	}
 }
 
 
@@ -284,11 +283,3 @@ void Game::addTile(int srcX,int srcY, int xpos, int ypos)
 	tile.addComponent<TileComponent>(srcX,srcY,xpos,ypos,mapfile);
 	tile.addGroup(groupMap);
 }
-
-//single tile component system
-//void Game::addTile(int id, int x, int y)
-//{
-//	auto& tile(manager.addEntity());
-//	tile.addComponent<TileComponent>(x,y,64,64,id);
-//	tile.addGroup(groupMap);
-//}
