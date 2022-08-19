@@ -28,27 +28,25 @@ public:
 
 	void update() override
 	{
-		if (/*Collision::hitCount <= 3 &&*/ Game::isComplete==false)
+		if (Game::event.type == SDL_KEYDOWN)
 		{
-			if (Game::event.type == SDL_KEYDOWN)
+			switch (Game::event.key.keysym.sym)
 			{
-				switch (Game::event.key.keysym.sym)
+			case SDLK_KP_ENTER:
+				startMapMovement = true;
+				break;
+			case SDLK_k:
+			{
+				if (startMapMovement == true )//&& mapBegin == true)
 				{
-				case SDLK_KP_ENTER:
-					Map::startMapMovement = true;
-					break;
-				case SDLK_k:
-				{
-					if (Map::startMapMovement == true)//&& mapBegin == true)
+					ballMoving = true;
+					if (transform->velocity.x == 0 && transform->velocity.x == 0)
 					{
-						Game::ballMoving = true;
-						if (transform->velocity.x == 0 && transform->velocity.y == 0)
-						{
-							tempXBall = transform->position.x;
-							tempYBall = transform->position.y;
-						}
-						transform->velocity.y = 1;
-						transform->velocity.x = 1;
+						tempXball = transform->position.x;
+						tempYball = transform->position.y;
+					}
+					transform->velocity.y = 1;
+					transform->velocity.x = 1;
 
 						sprite->Play("Move");
 						break;
