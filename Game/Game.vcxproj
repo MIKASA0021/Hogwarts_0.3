@@ -141,7 +141,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="gameLoop\Src\button.h" />
     <ClInclude Include="gameLoop\Src\Collision.h" />
+    <ClInclude Include="gameLoop\Src\dashboard.h" />
     <ClInclude Include="gameLoop\Src\ECS\animation.h" />
     <ClInclude Include="gameLoop\Src\ECS\ColliderComponent.h" />
     <ClInclude Include="gameLoop\Src\ECS\Components.h" />
@@ -154,15 +156,19 @@
     <ClInclude Include="gameLoop\Src\Audio.h" />
     <ClInclude Include="gameLoop\Src\Game.h" />
     <ClInclude Include="gameLoop\Src\GameObject.h" />
+    <ClInclude Include="gameLoop\Src\Help.h" />
     <ClInclude Include="gameLoop\Src\Map.h" />
     <ClInclude Include="gameLoop\Src\textureManager.h" />
     <ClInclude Include="gameLoop\Src\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="gameLoop\Src\button.cpp" />
     <ClCompile Include="gameLoop\Src\Collision.cpp" />
+    <ClCompile Include="gameLoop\Src\dashboard.cpp" />
     <ClCompile Include="gameLoop\Src\ECS\ECS.cpp" />
     <ClCompile Include="gameLoop\Src\Game.cpp" />
     <ClCompile Include="gameLoop\Src\GameObject.cpp" />
+    <ClCompile Include="gameLoop\Src\Help.cpp" />
     <ClCompile Include="gameLoop\Src\main.cpp" />
     <ClCompile Include="gameLoop\Src\Map.cpp" />
     <ClCompile Include="gameLoop\Src\textureManager.cpp" />

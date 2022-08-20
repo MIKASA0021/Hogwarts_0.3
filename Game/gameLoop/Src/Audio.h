@@ -9,6 +9,7 @@ class Audio:public Component
 private:
 	std::string bgpath, sepath;
 public:
+	//static Mix_Music* dbackgroundMusic;
 	static Mix_Music* backgroundMusic;
 	static Mix_Chunk* soundEffect;
 	Audio(){}

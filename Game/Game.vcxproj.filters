@@ -63,6 +63,15 @@
     <ClInclude Include="gameLoop\Src\Audio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="gameLoop\Src\button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameLoop\Src\dashboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameLoop\Src\Help.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameLoop\Src\ECS\ECS.cpp">
@@ -87,6 +96,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="gameLoop\Src\Vector2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameLoop\Src\button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameLoop\Src\dashboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameLoop\Src\Help.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

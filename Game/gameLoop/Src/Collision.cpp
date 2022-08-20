@@ -18,7 +18,7 @@ bool Collision::AABB(const SDL_Rect& recA, const SDL_Rect& recB)
 		{
 			Audio a;
 			hitCount++;
-			if(hitCount != 3)
+			if(hitCount != 5)
 			a.playEffects("gameLoop/effects/ouch.wav");
 
 			std::cout << "ball hit enemy" << std::endl;

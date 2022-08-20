@@ -5,29 +5,28 @@
 #include"ECS/Components.h"
 #include "Vector2D.h"
 #include"Collision.h"
-#include"Audio.h"
 #include <sstream>
 
 Map* map;
 Manager manager;
-
-SDL_Renderer* Game::renderer = nullptr;            //we can reassign
 SDL_Event Game::event;
+SDL_Renderer* Game::renderer = nullptr;
 
-std::vector<ColliderComponent*> Game::colliders;
+
 Mix_Music* Audio::backgroundMusic = nullptr;
 Mix_Chunk* Audio::soundEffect = nullptr;
 bool Game::isComplete = false;
 int Game::updateCounter = 0;
 bool Map::startMapMovement = false;
 bool Game::ballMoving = false;
+bool Game::isRunning = false;
 
 //SDL_Texture* Game:: StartEndTexture = nullptr;
 //
 //SDL_Rect srcStartEnd = { 0, 0, 300,640 };
 //SDL_Rect destStartEnd = { 0, 0, 300,640 };//600=800-200 for xpos of dest rect
 
-
+std::vector<ColliderComponent*> Game::colliders;
 auto& Player(manager.addEntity());  //creating our player
 auto& Enemy(manager.addEntity());   //creating our enemy
 auto& ball(manager.addEntity());    //creating our magic ball
@@ -36,19 +35,10 @@ auto& Sound(manager.addEntity());   //the audio entity
 
 const char* mapfile = "gameLoop/dev/finalMapTile64.png";
 
-enum groupLables : std::size_t
-{
-	groupMap,
-	groupPlayers,
-	groupEnemies,
-	groupColliders
-};
-
-
-auto& tiles(manager.getGroup(groupMap));
-auto& Players(manager.getGroup(groupPlayers));
-auto& enimies(manager.getGroup(groupEnemies));
-auto& balls(manager.getGroup(groupColliders));
+auto& tiles(manager.getGroup(Game::groupMap));
+auto& Players(manager.getGroup(Game::groupPlayers));
+auto& enimies(manager.getGroup(Game::groupEnemies));
+auto& balls(manager.getGroup(Game::groupColliders));
 
 Game::Game()
 {}
@@ -76,9 +66,11 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 
 		isRunning = true;
 	}
-	
 
-	Sound.addComponent<Audio>("gameloop/effects/gameNightShades.mp3", "gameloop/effects/gameClick.wav");
+	Mix_Quit();
+	Sound.addComponent<Audio>("gameloop/effects/gameNightShades.mp3","gameloop/effects/gameClick.wav");
+	//Sound.getComponent<Audio>().playMusic();
+	//Sound.getComponent<Audio>().playEffects();
 
 	if (TTF_Init() == -1)
 	{
@@ -130,6 +122,7 @@ void Game::handleEvents()
 	{
 	case SDL_QUIT :
 		isRunning = false;
+		clean();
 		break;
 	default:
 		break;
@@ -153,7 +146,7 @@ void Game::update()
 		{
 			label.getComponent<UILabel>().position.x = 500;
 			label.getComponent<UILabel>().position.y = 50;
-			label.getComponent<UILabel>().SetLabelText("HITS REQUIRED:3", "gameLoop/dev/8514oem.fon", 16);
+			label.getComponent<UILabel>().SetLabelText("HITS REQUIRED:5", "gameLoop/dev/8514oem.fon", 16);
 			//label.getComponent<UILabel>().SetLabelText("", "gameLoop/dev/8514oem.fon", 16);
 		}
 		updateCounter++;
@@ -165,7 +158,7 @@ void Game::update()
 			t->getComponent<TileComponent>().destRect.x += -2;
 		}
 
-			if (Collision::hitCount >= 3)
+			if (Collision::hitCount >= 5)
 			{
 				Enemy.getComponent<SpriteComponent>().Play("Dead");
 				break;
@@ -191,22 +184,24 @@ void Game::update()
 	{
 		ballMoving = false;
 		
-		if (Collision::hitCount == 1)
+		if (Collision::hitCount % 2 ==0)
 		{
-			Enemy.getComponent<TransformComponent>().position.x = 467;
-			Enemy.getComponent<TransformComponent>().position.y = 427;   
+			Enemy.getComponent<TransformComponent>().position.x = 447;
+			Enemy.getComponent<TransformComponent>().position.y = 447;   
 		}
 		else
 		{
-			Enemy.getComponent<TransformComponent>().position.x = 447;
-			Enemy.getComponent<TransformComponent>().position.y = 447;
+			Enemy.getComponent<TransformComponent>().position.x = 467;
+			Enemy.getComponent<TransformComponent>().position.y = 427;
 		}
+
 		std::stringstream sst;
-		sst << "HITS REQUIRED:" <<3- Collision::hitCount;
+		sst << "HITS REQUIRED:" <<5- Collision::hitCount;
 		label.getComponent<UILabel>().SetLabelText(sst.str(), "gameLoop/dev/8514oem.fon", 16);
 			ball.getComponent<TransformComponent>().position.x = ball.getComponent<KeyboardController>().tempXBall;
 			ball.getComponent<TransformComponent>().position.y = ball.getComponent<KeyboardController>().tempYBall;
-			if (Collision::hitCount == 3)
+
+			if (Collision::hitCount == 5)
 			{
 				isComplete = true;
 				ball.getComponent<TransformComponent>().velocity.x=0;
