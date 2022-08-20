@@ -33,7 +33,7 @@ public:
 	void clean();
 
 	//static AssetManager* assets;
-	//static SDL_Texture* StartEndTexture;
+    static SDL_Texture* winLoseTexture;
 	static bool runOnce;
 	static bool isComplete;
 	static int updateCounter;
@@ -43,9 +43,10 @@ public:
 	static SDL_Renderer* renderer;
 	static SDL_Event event;
 	static std::vector<ColliderComponent*>colliders;
+	SDL_Window* window;
 
 private:
 	//bool isRunning = false;
 	int cnt = 0;
-	SDL_Window *window;
+	
 };

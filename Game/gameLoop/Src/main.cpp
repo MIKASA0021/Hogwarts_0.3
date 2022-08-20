@@ -84,6 +84,7 @@ int main(int argc, char *argv[])
 										Map::startMapMovement = false;
 										game->isRunning = false;
 										game->isComplete = false;
+										SDL_DestroyWindow(game->window);
 										dashboard = new Dashboard();
 										dashboard->dashInit("Dashboard", 800, 640, false);
 										dashboard->isDashRunning = true;

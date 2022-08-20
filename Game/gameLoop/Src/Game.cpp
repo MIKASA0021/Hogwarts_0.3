@@ -11,7 +11,9 @@ Map* map;
 Manager manager;
 SDL_Event Game::event;
 SDL_Renderer* Game::renderer = nullptr;
-
+SDL_Texture* Game::winLoseTexture = nullptr;
+SDL_Rect srcWinLose = { 0, 0, 400,300 };
+SDL_Rect destWinLose = { 200, 180, 400,300 }; 
 
 Mix_Music* Audio::backgroundMusic = nullptr;
 Mix_Chunk* Audio::soundEffect = nullptr;
@@ -211,11 +213,9 @@ void Game::update()
 
 	if (isComplete == true)
 	{
-		
-		while(runOnce == false)
 		winLoseTexture = TextureManager::LoadTexture("gameLoop/dev/lose.png");
 		TextureManager::Draw(winLoseTexture, srcWinLose, destWinLose, SDL_FLIP_NONE);
-		for (static bool runOnce = true; runOnce; runOnce = false)
+		while (runOnce == false)
 		{
 			Sound.getComponent<Audio>().freeMusic();
 			Sound.addComponent<Audio>("gameLoop/effects/hedwigsTheme.mp3");
