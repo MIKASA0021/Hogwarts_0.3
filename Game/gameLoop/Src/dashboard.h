@@ -2,6 +2,7 @@
 
 #include "SDL.h"
 #include"SDL_image.h"
+#include"SDL_mixer.h"
 #include <iostream>
 #include <vector>
 #include "Game.h"
@@ -18,13 +19,12 @@ public:
     {
         return isDashRunning;
     }
+
     void dashRender();
     void dashClean();
-    //static SDL_Renderer* dashRenderer;
     static SDL_Event dashEvent;
     static SDL_Texture* dashTexture;
     static SDL_Texture* mouseTexture;
-    //static SDL_Renderer* dashRenderer;
     bool isDashRunning=false;
 
 protected:

@@ -25,7 +25,6 @@ public:
 		groupColliders,
 		goupSingleText
 	};
-
 	
 	void handleEvents();
 	void update();
@@ -35,6 +34,7 @@ public:
 
 	//static AssetManager* assets;
 	//static SDL_Texture* StartEndTexture;
+	static bool runOnce;
 	static bool isComplete;
 	static int updateCounter;
 	static bool ballMoving;

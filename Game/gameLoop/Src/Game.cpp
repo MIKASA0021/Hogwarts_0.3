@@ -20,11 +20,7 @@ int Game::updateCounter = 0;
 bool Map::startMapMovement = false;
 bool Game::ballMoving = false;
 bool Game::isRunning = false;
-
-//SDL_Texture* Game:: StartEndTexture = nullptr;
-//
-//SDL_Rect srcStartEnd = { 0, 0, 300,640 };
-//SDL_Rect destStartEnd = { 0, 0, 300,640 };//600=800-200 for xpos of dest rect
+bool Game::runOnce = true;
 
 std::vector<ColliderComponent*> Game::colliders;
 auto& Player(manager.addEntity());  //creating our player
@@ -67,17 +63,13 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		isRunning = true;
 	}
 
-	Mix_Quit();
-	Sound.addComponent<Audio>("gameloop/effects/gameNightShades.mp3","gameloop/effects/gameClick.wav");
-	//Sound.getComponent<Audio>().playMusic();
-	//Sound.getComponent<Audio>().playEffects();
+	Sound.addComponent<Audio>("gameloop/effects/hedwigsTheme8-bit.mp3","gameloop/effects/gameClick.wav");
 
 	if (TTF_Init() == -1)
 	{
 		std::cout << "Error : SDL_TTF" << std::endl;
 	}
 
-	//reassets->AddTexture("Player", "gameLoop/gfx/finalHarry.png");
 
 		map = new Map();
 		static int loop;
@@ -131,23 +123,19 @@ void Game::handleEvents()
 
 
 void Game::update()
-{/*
-	Vector2D pVel = Enemy.getComponent<TransformComponent>().velocity;
-	std::stringstream sst;
-	sst << "Player velocity: " << pVel;
-	label.getComponent<UILabel>().SetLabelText(sst.str(), "gameLoop/dev/8514oem.fon",16);*/
+{
 
 	manager.refresh();
 	manager.update();
 
 	if (Map::startMapMovement == true)
 	{
-		for (static bool runOnce = true; runOnce; runOnce = false)
+		while(runOnce == true)
 		{
 			label.getComponent<UILabel>().position.x = 500;
 			label.getComponent<UILabel>().position.y = 50;
 			label.getComponent<UILabel>().SetLabelText("HITS REQUIRED:5", "gameLoop/dev/8514oem.fon", 16);
-			//label.getComponent<UILabel>().SetLabelText("", "gameLoop/dev/8514oem.fon", 16);
+			runOnce = false;
 		}
 		updateCounter++;
 	}
@@ -204,6 +192,7 @@ void Game::update()
 			if (Collision::hitCount == 5)
 			{
 				isComplete = true;
+
 				ball.getComponent<TransformComponent>().velocity.x=0;
 				ball.getComponent<TransformComponent>().velocity.y =0;
 				Sound.getComponent<Audio>().playEffects("gameLoop/effects/gameLevelComplete.wav");
@@ -216,14 +205,13 @@ void Game::update()
 	if (isComplete == true)
 	{
 		
-		for (static bool runOnce = true; runOnce; runOnce = false)
+		while(runOnce == false)
 		{
-			//Sound.getComponent<Audio>().pauseMusic();
 			Sound.getComponent<Audio>().freeMusic();
-			Sound.addComponent<Audio>("gameLoop/effects/hedwigsTheme8-bit.mp3");
+			Sound.addComponent<Audio>("gameLoop/effects/hedwigsTheme.mp3");
 			label.getComponent<UILabel>().SetLabelText("", "gameLoop/dev/8514oem.fon", 16);
 			
-			//Sound.getComponent<Audio>().playEffects("gameLoop/effects/loseSound.wav");
+			runOnce = true;
 		}
 	}
 }

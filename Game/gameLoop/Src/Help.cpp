@@ -33,10 +33,6 @@ void Help::helpInit(const char* title, int width, int height, bool fullscreen)
 
 		ishelpRunning = true;
 	}
-	if (ishelpRunning == true)
-	{
-		Audio("gameLoop/effects/hedwigsTheme8-bit.mp3", "gameLoop/effects/gameClick.wav");
-	}
 	SDL_ShowCursor(true);
 }
 

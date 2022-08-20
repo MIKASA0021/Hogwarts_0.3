@@ -37,7 +37,7 @@ public:
 			case SDLK_RETURN:
 				Map::startMapMovement = true;
 				break;
-			case SDLK_k:
+			case SDLK_h:
 			{
 				if (Map::startMapMovement == true )//&& mapBegin == true)
 				{
@@ -53,7 +53,7 @@ public:
 						break;
 					}
 				}
-				case SDLK_a:
+				case SDLK_SPACE:
 				{
 					if (Map::startMapMovement == true && Game::ballMoving == false)
 					{
@@ -98,7 +98,7 @@ public:
 					}
 					break;
 					break;
-				case SDLK_k:
+				case SDLK_h:
 				{
 					if (Map::startMapMovement == true)
 					{
@@ -112,7 +112,7 @@ public:
 						break;
 					}
 				}
-				case SDLK_a:
+				case SDLK_SPACE:
 				{
 
 					if (Map::startMapMovement == true && Game::ballMoving == false)

@@ -3,20 +3,16 @@
 #include"Button.h"
 #include<cstdlib>
 
-//SDL_Renderer* Dashboard::dashRenderer = nullptr;            //we can reassign
+
 SDL_Event Dashboard::dashEvent;
 SDL_Texture* Dashboard::dashTexture = nullptr;
 SDL_Rect srcRect = { 0, 0, 800, 640 };
 SDL_Rect destRect = { 0, 0, 800, 640 };
 
-extern Manager manager;
 SDL_Texture* Dashboard::mouseTexture = nullptr;
 SDL_Rect srcmouse = { NULL,NULL,64,64 };
 SDL_Rect destmouse = { NULL,NULL,32,32};
 Button* buttonArray;
-//Mix_Music* Audio::dbackgroundMusic;
-
-auto& dSound(manager.addEntity());
 
 Dashboard::Dashboard()
 {}
@@ -38,10 +34,9 @@ void Dashboard::dashInit(const char* title, int width, int height, bool fullscre
         {
             SDL_SetRenderDrawColor(Game::renderer, 0, 0, 0, 0);
         }
-
         isDashRunning = true;
     }
-    dSound.addComponent<Audio>("gameloop/effects/HedwigsTheme8-bit.mp3","gameloop/effects/gameClick.wav");
+
 
     SDL_ShowCursor(false);
     buttonArray = new Button[6];
@@ -63,7 +58,6 @@ void Dashboard::dashHandleEvents()
     for (int i = 0; i < 3; i++)
     {
         buttonArray[i].handleEvents();
-       // std::cout << "dash ko handle event"<<std::endl;
     }
 }
 void Dashboard::dashUpdate()
@@ -92,8 +86,7 @@ void Dashboard::dashRender()
     SDL_Surface* temp = IMG_Load("gameLoop/gfx/hand.png");
     mouseTexture = SDL_CreateTextureFromSurface(Game::renderer, temp);
     SDL_RenderCopyEx(Game::renderer, mouseTexture, &srcmouse, &destmouse, NULL, NULL, SDL_FLIP_NONE);
-   // mouseTexture = TextureManager::LoadTexture("gameloop/gfx/hand.png");
-   // TextureManager::Draw(mouseTexture, srcmouse, destmouse, SDL_FLIP_NONE);
+
     SDL_RenderPresent(Game::renderer);
 }
 
@@ -102,81 +95,6 @@ void Dashboard::dashClean()
     delete[] buttonArray;
     SDL_DestroyWindow(dashWindow);
     SDL_DestroyRenderer(Game::renderer);
-
-    Mix_FreeChunk(Audio::soundEffect);
-    Mix_FreeMusic(Audio::backgroundMusic);
-
-    Audio::soundEffect = NULL;
-    Audio::backgroundMusic = NULL;
-
-    Mix_Quit();
     SDL_Quit();
 }
 
-/*if (SDL_MOUSEBUTTONDOWN == dashEvent.type)
- {
-     if (SDL_BUTTON_LEFT == dashEvent.button.button)
-     {
-         std::cout << "left mouse button down" << std::endl;
-     }
-     if (SDL_BUTTON_RIGHT == dashEvent.button.button)
-     {
-         std::cout << "right mouse button down" << std::endl;
-     }
-     if (SDL_BUTTON_MIDDLE == dashEvent.button.button)
-     {
-         std::cout << "middle mouse button down" << std::endl;
-     }
- }
- if (SDL_MOUSEBUTTONUP == dashEvent.type)
- {
-     if (SDL_BUTTON_LEFT == dashEvent.button.button)
-     {
-         std::cout << "left mouse button UP" << std::endl;
-     }
-     if (SDL_BUTTON_RIGHT == dashEvent.button.button)
-     {
-         std::cout << "right mouse button UP" << std::endl;
-     }
-     if (SDL_BUTTON_MIDDLE == dashEvent.button.button)
-     {
-         std::cout << "middle mouse button UP" << std::endl;
-     }
- }*/
- /*if (SDL_MOUSEMOTION == dashEvent.type)
-     {
-         int x, y;
-         SDL_GetMouseState(&x, &y);
-         std::cout << x << " : " << y << std::endl;
-
-         if (x >= destRect.x && x <= destRect.x + destRect.w && y >= destRect.y && y <= destRect.y + destRect.h)
-         {
-             if (SDL_MOUSEBUTTONDOWN == dashEvent.type)
-             {
-                 if (SDL_BUTTON_LEFT == dashEvent.button.button)
-                 {
-                    isSelected = true;
-                 }
-             }
-         }
-     }*/
-
-     /*if (dashEvent.type == SDL_KEYUP)
-        {
-            switch (dashEvent.key.keysym.sym)
-            {
-            case SDLK_ESCAPE:
-                Game::isRunning = false;
-                break;
-            default:
-                break;
-            }
-        }*/
-        /*switch (dashEvent.type)
-        {
-        case SDL_QUIT:
-            isDashRunning = false;
-            break;
-        default:
-            break;
-        }*/

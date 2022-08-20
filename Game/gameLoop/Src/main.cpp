@@ -3,6 +3,7 @@
 #include "dashboard.h"
 #include "Help.h"
 #include "Button.h"
+#include "Collision.h"
 
 Game *game = nullptr;
 Dashboard* dashboard = nullptr;
@@ -29,10 +30,6 @@ int main(int argc, char *argv[])
 			dashboard->dashHandleEvents();
 			dashboard->dashUpdate();
 			dashboard->dashRender();
-			if (!Mix_PlayingMusic())
-			{
-				a.playMusic();
-			}
 
 			SDL_PollEvent(&Dashboard::dashEvent);
 			switch (Dashboard::dashEvent.type)
@@ -40,13 +37,10 @@ int main(int argc, char *argv[])
 			case SDL_QUIT:
 				dashboard->isDashRunning = false;
 				dashboard->dashClean();
-				game->clean();
 				break;
-			case SDL_MOUSEBUTTONDOWN:
+			case SDL_MOUSEBUTTONUP:
 				if (Dashboard::dashEvent.button.button == SDL_BUTTON_LEFT)
 				{
-					a.playEffects();
-					//std::cout << "Left click" <<std:: endl;
 					if (buttonArray[0].isSelected)
 					{
 						std::cout << "Button Selected" << std::endl;
@@ -55,6 +49,7 @@ int main(int argc, char *argv[])
 
 						game = new Game();
 						game->init("GameWindow", 800, 640, false);
+						
 
 						while (game->running())
 						{
@@ -63,10 +58,6 @@ int main(int argc, char *argv[])
 							game->handleEvents();
 							game->update();
 							game->render();
-							if (!Mix_PlayingMusic())
-							{
-								a.playMusic();
-							}
 
 							frameTime = SDL_GetTicks() - frameStart;
 
@@ -75,7 +66,10 @@ int main(int argc, char *argv[])
 								SDL_Delay(frameDelay - frameTime);
 							}
 
-
+							if (!Mix_PlayingMusic())
+							{
+								a.playMusic();
+							}
 
 							if (Game::isComplete == true)
 							{
@@ -84,13 +78,15 @@ int main(int argc, char *argv[])
 									switch (Game::event.key.keysym.sym)
 									{
 									case SDLK_m:
+										Game::ballMoving = false;
+										Collision::hitCount = 0;
+										Game::updateCounter = 0;
+										Map::startMapMovement = false;
 										game->isRunning = false;
 										game->isComplete = false;
-										//game->clean();
 										dashboard = new Dashboard();
 										dashboard->dashInit("Dashboard", 800, 640, false);
 										dashboard->isDashRunning = true;
-
 										break;
 									default:
 										break;
@@ -98,7 +94,6 @@ int main(int argc, char *argv[])
 								}
 							}
 						}
-						game->clean();
 					}
 					else if (buttonArray[1].isSelected)
 					{
@@ -108,7 +103,6 @@ int main(int argc, char *argv[])
 					}
 					else if (buttonArray[2].isSelected)
 					{
-						//std::cout << "hi" << std::endl;
 						dashboard->isDashRunning = false;
 						dashboard->dashClean();
 						help = new Help();
@@ -119,13 +113,7 @@ int main(int argc, char *argv[])
 							frameStart = SDL_GetTicks();
 
 							help->helpHandleEvents();
-							//game->update();
 							help->helpRender();
-							//if (!Mix_PlayingMusic())
-							//{
-							//	a.playMusic();
-							//}
-							//a.playEffects();
 							a.playMusic();
 							frameTime = SDL_GetTicks() - frameStart;
 
@@ -161,8 +149,6 @@ int main(int argc, char *argv[])
 			}
 		}
 		dashboard->dashClean();
-
-
 	game->clean();
 	return 0;
 }
