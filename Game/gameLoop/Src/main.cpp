@@ -99,7 +99,6 @@ int main(int argc, char *argv[])
 					{
 						dashboard->isDashRunning = false;
 						dashboard->dashClean();
-						game->clean();
 					}
 					else if (buttonArray[2].isSelected)
 					{
@@ -140,7 +139,6 @@ int main(int argc, char *argv[])
 			default:
 				break;
 			}
-
 			frameTime = SDL_GetTicks() - frameStart;
 
 			if (frameDelay > frameTime)

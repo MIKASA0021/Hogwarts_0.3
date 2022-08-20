@@ -94,8 +94,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	Enemy.addComponent<ColliderComponent>("Enemy");
 	Enemy.addGroup(groupEnemies);
 
-	label.addComponent<UILabel>(250, 250, "PRESS ENTER TO START ", "gameLoop/dev/8514oem.fon", 16);
-	
+	label.addComponent<UILabel>(250, 250, "PRESS ENTER TO START", "gameLoop/dev/8514oem.fon", 16);
 	//label.addComponent<KeyboardComtroller>();
 
 	//magicBall
@@ -115,6 +114,14 @@ void Game::handleEvents()
 	case SDL_QUIT :
 		isRunning = false;
 		clean();
+		break;
+	default:
+		break;
+	}
+	switch (event.key.keysym.sym)
+	{
+	case SDLK_ESCAPE:
+		isRunning = false;
 		break;
 	default:
 		break;
@@ -206,6 +213,9 @@ void Game::update()
 	{
 		
 		while(runOnce == false)
+		winLoseTexture = TextureManager::LoadTexture("gameLoop/dev/lose.png");
+		TextureManager::Draw(winLoseTexture, srcWinLose, destWinLose, SDL_FLIP_NONE);
+		for (static bool runOnce = true; runOnce; runOnce = false)
 		{
 			Sound.getComponent<Audio>().freeMusic();
 			Sound.addComponent<Audio>("gameLoop/effects/hedwigsTheme.mp3");
@@ -235,12 +245,22 @@ void Game::render()
 		e->draw();
 	}
 
-		for (auto& b : balls)
-		{
-			b->draw();
-		}
+	for (auto& b : balls)
+	{
+		b->draw();
+	}
 
-		label.draw();
+	label.draw();
+	if (Collision::hitCount>=5)
+	{
+		winLoseTexture = TextureManager::LoadTexture("gameLoop/dev/winFinal.png");
+		TextureManager::Draw(winLoseTexture, srcWinLose, destWinLose, SDL_FLIP_NONE);
+	}
+	if (updateCounter >= 1600 && Collision::hitCount<5)
+	{
+		winLoseTexture = TextureManager::LoadTexture("gameLoop/dev/loseFinal.png");
+		TextureManager::Draw(winLoseTexture, srcWinLose, destWinLose, SDL_FLIP_NONE);
+	}
 	SDL_RenderPresent(renderer);
 }
 
