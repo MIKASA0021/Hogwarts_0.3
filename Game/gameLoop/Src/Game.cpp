@@ -21,10 +21,9 @@ bool Map::startMapMovement = false;
 bool Game::ballMoving = false;
 bool Game::isRunning = false;
 
-//SDL_Texture* Game:: StartEndTexture = nullptr;
-//
-//SDL_Rect srcStartEnd = { 0, 0, 300,640 };
-//SDL_Rect destStartEnd = { 0, 0, 300,640 };//600=800-200 for xpos of dest rect
+SDL_Texture* winLoseTexture = nullptr;
+SDL_Rect srcWinLose = { 0, 0, 400,300 };
+SDL_Rect destWinLose = { 200, 180, 400,300 };
 
 std::vector<ColliderComponent*> Game::colliders;
 auto& Player(manager.addEntity());  //creating our player
@@ -102,8 +101,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	Enemy.addComponent<ColliderComponent>("Enemy");
 	Enemy.addGroup(groupEnemies);
 
-	label.addComponent<UILabel>(250, 250, "PRESS ENTER TO START ", "gameLoop/dev/8514oem.fon", 16);
-	
+	label.addComponent<UILabel>(250, 250, "PRESS ENTER TO START", "gameLoop/dev/8514oem.fon", 16);
 	//label.addComponent<KeyboardComtroller>();
 
 	//magicBall
@@ -123,6 +121,14 @@ void Game::handleEvents()
 	case SDL_QUIT :
 		isRunning = false;
 		clean();
+		break;
+	default:
+		break;
+	}
+	switch (event.key.keysym.sym)
+	{
+	case SDLK_ESCAPE:
+		isRunning = false;
 		break;
 	default:
 		break;
@@ -215,7 +221,8 @@ void Game::update()
 
 	if (isComplete == true)
 	{
-		
+		winLoseTexture = TextureManager::LoadTexture("gameLoop/dev/lose.png");
+		TextureManager::Draw(winLoseTexture, srcWinLose, destWinLose, SDL_FLIP_NONE);
 		for (static bool runOnce = true; runOnce; runOnce = false)
 		{
 			//Sound.getComponent<Audio>().pauseMusic();
@@ -247,12 +254,22 @@ void Game::render()
 		e->draw();
 	}
 
-		for (auto& b : balls)
-		{
-			b->draw();
-		}
+	for (auto& b : balls)
+	{
+		b->draw();
+	}
 
-		label.draw();
+	label.draw();
+	if (Collision::hitCount>=5)
+	{
+		winLoseTexture = TextureManager::LoadTexture("gameLoop/dev/winFinal.png");
+		TextureManager::Draw(winLoseTexture, srcWinLose, destWinLose, SDL_FLIP_NONE);
+	}
+	if (updateCounter >= 1600 && Collision::hitCount<5)
+	{
+		winLoseTexture = TextureManager::LoadTexture("gameLoop/dev/loseFinal.png");
+		TextureManager::Draw(winLoseTexture, srcWinLose, destWinLose, SDL_FLIP_NONE);
+	}
 	SDL_RenderPresent(renderer);
 }
 

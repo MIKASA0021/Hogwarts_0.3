@@ -40,7 +40,6 @@ int main(int argc, char *argv[])
 			case SDL_QUIT:
 				dashboard->isDashRunning = false;
 				dashboard->dashClean();
-				game->clean();
 				break;
 			case SDL_MOUSEBUTTONDOWN:
 				if (Dashboard::dashEvent.button.button == SDL_BUTTON_LEFT)
@@ -104,7 +103,6 @@ int main(int argc, char *argv[])
 					{
 						dashboard->isDashRunning = false;
 						dashboard->dashClean();
-						game->clean();
 					}
 					else if (buttonArray[2].isSelected)
 					{
@@ -152,7 +150,6 @@ int main(int argc, char *argv[])
 			default:
 				break;
 			}
-
 			frameTime = SDL_GetTicks() - frameStart;
 
 			if (frameDelay > frameTime)
