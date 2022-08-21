@@ -35,7 +35,7 @@ const char* mapfile = "gameLoop/dev/finalMapTile64.png";
 
 auto& tiles(manager.getGroup(Game::groupMap));
 auto& Players(manager.getGroup(Game::groupPlayers));
-auto& enimies(manager.getGroup(Game::groupEnemies));
+auto& enemies(manager.getGroup(Game::groupEnemies));
 auto& balls(manager.getGroup(Game::groupColliders));
 
 Game::Game()
@@ -240,7 +240,7 @@ void Game::render()
 	{
 		p->draw();
 	}
-	for (auto& e : enimies)
+	for (auto& e : enemies)
 	{
 		e->draw();
 	}

@@ -50,8 +50,8 @@ public:
 					transform->velocity.x = 1;
 
 						sprite->Play("Move");
-						break;
-					}
+				}
+				break;
 				}
 				case SDLK_SPACE:
 				{
@@ -76,8 +76,8 @@ public:
 						}
 
 						sprite->Play("Idle");
-						break;
 					}
+					break;
 				}
 				default:
 					break;
@@ -97,7 +97,6 @@ public:
 						sprite->Play("Idle");
 					}
 					break;
-					break;
 				case SDLK_h:
 				{
 					if (Map::startMapMovement == true)
@@ -109,8 +108,8 @@ public:
 							pressCount = 0;
 							sprite->Play("Idle");
 						}
-						break;
 					}
+					break;
 				}
 				case SDLK_SPACE:
 				{
@@ -120,8 +119,8 @@ public:
 						transform->velocity.y = 0;
 						transform->velocity.x = 0;
 						sprite->Play("Idle");
-						break;
 					}
+					break;
 				}
 				default:
 					break;
