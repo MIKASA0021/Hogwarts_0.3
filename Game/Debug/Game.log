@@ -1,4 +1,5 @@
-﻿  Collision.cpp
+﻿  button.cpp
+  Collision.cpp
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(84,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(85,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\KeyboardController.h(46,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -7,6 +8,8 @@ C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(32,32): warning C4244:
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(33,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(28,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(29,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  dashboard.cpp
+  ECS.cpp
   Game.cpp
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(84,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(85,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -23,7 +26,7 @@ C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ECS.h(120,33): warning C4244: 'argument': 
           [
               _Ty=double
           ]
-C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(88): message : see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int,int,int,double>(int &&,int &&,int &&,int &&,double &&)' being compiled
+C:\Hogwarts_0.3\Game\gameLoop\Src\Game.cpp(88,60): message : see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int,int,int,double>(int &&,int &&,int &&,int &&,double &&)' being compiled
           with
           [
               T=TransformComponent
@@ -35,9 +38,6 @@ C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ECS.h(120,33): warning C4244: 'argument': 
           ]
   GameObject.cpp
   Help.cpp
-  Map.cpp
-  button.cpp
-  dashboard.cpp
   main.cpp
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(84,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\SpriteComponent.h(85,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -47,6 +47,8 @@ C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(32,32): warning C4244:
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\ColliderComponent.h(33,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(28,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Hogwarts_0.3\Game\gameLoop\Src\ECS\TileComponent.h(29,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Map.cpp
   textureManager.cpp
+  Vector2D.cpp
   Generating Code...
   Game.vcxproj -> C:\Hogwarts_0.3\Game\Debug\Game.exe
