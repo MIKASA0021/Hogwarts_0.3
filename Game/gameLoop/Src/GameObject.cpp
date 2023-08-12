@@ -1,7 +1,7 @@
 #include "GameObject.h"
 #include "textureManager.h"
 
-GameObject::GameObject(const char* texturesheet,int x, int y,int h, int w)
+GameObject::GameObject(const char* texturesheet,int x=0, int y=0,int h=32, int w=32)
 {
 	xpos = x;
 	ypos = y;

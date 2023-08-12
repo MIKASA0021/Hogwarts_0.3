@@ -1,0 +1,15 @@
+/SDL2
+/SDL2_image-2.0.1
+/SDL2_mixer-2.0.0
+/SDL2_ttf-2.20.0
+
+/Game/*.vcxproj
+/Game/*.vcxproj.filters
+/Game/*.vcxproj.user
+
+/Game/*.dll
+
+/Game/.vs/
+/Game/Debug/
+/Game/Visual Studio 2022/
+
