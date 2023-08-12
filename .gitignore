@@ -3,6 +3,7 @@
 /SDL2_mixer-2.0.0
 /SDL2_ttf-2.20.0
 
+/Game/*.sln
 /Game/*.vcxproj
 /Game/*.vcxproj.filters
 /Game/*.vcxproj.user
